@@ -5,7 +5,7 @@
 
 ## 1. Purpose
 
-This document defines the **legal backbone** of the Tech4Life Open Innovation License (TOIL).
+This document defines the **legal backbone** of the Tech4Life Open Impact License (TOIL) v1.0.
 
 TOIL exists to:
 - Protect creators
@@ -179,4 +179,3 @@ Commercial partners are encouraged to seek independent legal counsel.
 ---
 
 **TOIL protects openness by making responsibility enforceable.**
-

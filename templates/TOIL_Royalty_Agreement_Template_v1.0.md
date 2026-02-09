@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This agreement defines the commercial licensing and royalty terms for products governed under the **Tech4Life Open Innovation License (TOIL)**.
+This agreement defines the commercial licensing and royalty terms for products governed under the **Tech4Life Open Impact License (TOIL) v1.0**.
 
 It applies when a third party seeks to manufacture, distribute, or commercially exploit a TOIL-registered product.
 
@@ -133,4 +133,3 @@ Date: __________
 ---
 
 End of TOIL Royalty Agreement Template v1.0
-
