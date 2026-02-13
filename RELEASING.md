@@ -1,0 +1,35 @@
+# Releasing & Versioning (TOIL)
+
+TOIL is a legal baseline. Versioning must be **auditable** and **evidence-grade**.
+
+## Canonical document set
+
+For a given TOIL release, the canonical set includes:
+- `license/TOIL_vX.Y.md`
+- `license/TOIL_Legal_Architecture.md` (versioned as needed)
+- `templates/TOIL_Royalty_Agreement_Template_vX.Y.md`
+- `templates/Tech4Life_Mutual_NDA_vX.Y.md`
+- `CHANGELOG.md`
+- Release manifests under `license/releases/`
+
+## Version model
+
+- **TOIL version**: `vMAJOR.MINOR`
+  - MAJOR: breaking legal/behavior change or enforcement semantics change
+  - MINOR: additive clarifications that do not change core rights/obligations
+- **Repository release tags** (recommended): `toil-vMAJOR.MINOR.PATCH`
+
+## Evidence requirement (hash manifests)
+
+For each release:
+1. Generate SHA-256 hashes for the canonical document set.
+2. Commit them under `license/releases/` (see the existing manifest file pattern).
+3. Tag the release.
+
+## Notes
+
+- Draft changes may exist on branches, but canonical meaning is tied to:
+  - merged main history
+  - changelog entries
+  - release manifests
+  - tags
