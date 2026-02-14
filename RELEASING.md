@@ -25,8 +25,8 @@ For a given TOIL release, the canonical set includes:
 ## Evidence requirement (hash manifests)
 
 For each release:
-1. Generate SHA-256 hashes for the canonical document set.
-2. Commit them under `license/releases/` (see the existing manifest file pattern).
+1. Generate the canonical SHA-256 manifest with `python3 tools/build_release_manifest.py --version X.Y`.
+2. Commit the updated manifest under `license/releases/`.
 3. Tag the release.
 
 ## Notes
