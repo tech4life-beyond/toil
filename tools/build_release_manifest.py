@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Build TOIL release manifest for a given version.
+"""Build or check TOIL release manifest for a given version.
 
 Usage:
   python3 tools/build_release_manifest.py --version 1.0
+  python3 tools/build_release_manifest.py --version 1.0 --check
 """
 
 from __future__ import annotations
 
 import argparse
+import difflib
 import hashlib
 from pathlib import Path
 
@@ -35,9 +37,18 @@ def canonical_files(version: str) -> list[Path]:
     ]
 
 
+def render_manifest_lines(files: list[Path]) -> list[str]:
+    return [f"{sha256_file(p)}  {p.relative_to(REPO_ROOT).as_posix()}" for p in files]
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--version", required=True, help="TOIL version, e.g., 1.0")
+    ap.add_argument(
+        "--check",
+        action="store_true",
+        help="check manifest is current without rewriting it",
+    )
     args = ap.parse_args()
 
     files = canonical_files(args.version)
@@ -51,8 +62,38 @@ def main() -> int:
     manifest_path = (
         REPO_ROOT / "license" / "releases" / f"TOIL_v{args.version}.manifest.sha256"
     )
-    lines = [f"{sha256_file(p)}  {p.relative_to(REPO_ROOT).as_posix()}" for p in files]
-    manifest_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    expected_text = "\n".join(render_manifest_lines(files)) + "\n"
+
+    if args.check:
+        if not manifest_path.exists():
+            print(f"ERROR: Missing manifest {manifest_path.relative_to(REPO_ROOT)}")
+            print(
+                f"Run: python3 tools/build_release_manifest.py --version {args.version} and commit the result."
+            )
+            return 3
+
+        actual_text = manifest_path.read_text(encoding="utf-8")
+        if actual_text != expected_text:
+            print(
+                f"ERROR: Manifest is out of date: {manifest_path.relative_to(REPO_ROOT)}"
+            )
+            diff = difflib.unified_diff(
+                actual_text.splitlines(),
+                expected_text.splitlines(),
+                fromfile="committed",
+                tofile="expected",
+                lineterm="",
+            )
+            print("\n".join(diff))
+            print(
+                f"Run: python3 tools/build_release_manifest.py --version {args.version} and commit the updated manifest."
+            )
+            return 4
+
+        print(f"OK: Manifest is up to date: {manifest_path.relative_to(REPO_ROOT)}")
+        return 0
+
+    manifest_path.write_text(expected_text, encoding="utf-8")
     print(f"Wrote {manifest_path.relative_to(REPO_ROOT)}")
     return 0
 

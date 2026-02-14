@@ -26,8 +26,10 @@ For a given TOIL release, the canonical set includes:
 
 For each release:
 1. Generate the canonical SHA-256 manifest with `python3 tools/build_release_manifest.py --version X.Y`.
-2. Commit the updated manifest under `license/releases/`.
-3. Tag the release.
+2. Confirm it is current with `python3 tools/build_release_manifest.py --version X.Y --check`.
+3. Commit the updated manifest under `license/releases/`.
+4. Tag the release.
+
 
 ## Notes
 

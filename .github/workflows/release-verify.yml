@@ -15,9 +15,6 @@ jobs:
         with:
           python-version: "3.11"
       - name: Check manifest is up to date (v1.0)
-        run: |
-          python3 tools/build_release_manifest.py --version 1.0
-          git diff --exit-code -- license/releases/TOIL_v1.0.manifest.sha256
-
+        run: python3 tools/build_release_manifest.py --version 1.0 --check
       - name: Verify TOIL release integrity (v1.0)
         run: python3 tools/verify_release.py --version 1.0
