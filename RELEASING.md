@@ -2,14 +2,17 @@
 
 TOIL is a legal baseline. Versioning must be **auditable** and **evidence-grade**.
 
-## Canonical document set
+## Canonical document set (TOIL legal baseline)
 
 For a given TOIL release, the canonical set includes:
+- `LICENSE.md` (must remain byte-identical to `license/TOIL_vX.Y.md`)
 - `license/TOIL_vX.Y.md`
 - `license/TOIL_Legal_Architecture.md` (versioned as needed)
 - `templates/TOIL_Royalty_Agreement_Template_vX.Y.md`
 - `templates/Tech4Life_Mutual_NDA_vX.Y.md`
 - `CHANGELOG.md`
+- `AMENDMENTS.md`
+- `RELEASING.md`
 - Release manifests under `license/releases/`
 
 ## Version model
@@ -22,9 +25,11 @@ For a given TOIL release, the canonical set includes:
 ## Evidence requirement (hash manifests)
 
 For each release:
-1. Generate SHA-256 hashes for the canonical document set.
-2. Commit them under `license/releases/` (see the existing manifest file pattern).
-3. Tag the release.
+1. Generate the canonical SHA-256 manifest with `python3 tools/build_release_manifest.py --version X.Y`.
+2. Confirm it is current with `python3 tools/build_release_manifest.py --version X.Y --check`.
+3. Commit the updated manifest under `license/releases/`.
+4. Tag the release.
+
 
 ## Notes
 
