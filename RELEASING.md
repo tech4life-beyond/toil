@@ -2,14 +2,17 @@
 
 TOIL is a legal baseline. Versioning must be **auditable** and **evidence-grade**.
 
-## Canonical document set
+## Canonical document set (TOIL legal baseline)
 
 For a given TOIL release, the canonical set includes:
+- `LICENSE.md` (must remain byte-identical to `license/TOIL_vX.Y.md`)
 - `license/TOIL_vX.Y.md`
 - `license/TOIL_Legal_Architecture.md` (versioned as needed)
 - `templates/TOIL_Royalty_Agreement_Template_vX.Y.md`
 - `templates/Tech4Life_Mutual_NDA_vX.Y.md`
 - `CHANGELOG.md`
+- `AMENDMENTS.md`
+- `RELEASING.md`
 - Release manifests under `license/releases/`
 
 ## Version model
