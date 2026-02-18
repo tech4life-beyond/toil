@@ -1,7 +1,7 @@
 # Tech4Life Open Impact License (TOIL) v1.0
 
-**Version:** 1.0
-**Last Updated:** August 2025
+**Version:** 1.0  
+**Last Updated:** August 2025  
 **Official License of Tech4Life & Beyond LLC**
 
 ---
@@ -142,9 +142,9 @@ This License is governed by the laws of the State of Florida, United States of A
 
 ## 11. Contact Information
 
-**Tech4Life & Beyond LLC**
-Florida, United States
-Email: info@tech4lifeandbeyond.com 
+**Tech4Life & Beyond LLC**  
+Florida, United States  
+Email: info@tech4lifeandbeyond.com  
 Website: https://tech4lifeandbeyond.com
 
 ---
