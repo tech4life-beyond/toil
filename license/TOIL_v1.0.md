@@ -144,7 +144,7 @@ This License is governed by the laws of the State of Florida, United States of A
 
 **Tech4Life & Beyond LLC**  
 Florida, United States  
-Email: tech4lifeandbeyond@gmail.com  
+Email: info@tech4lifeandbeyond.com  
 Website: https://tech4lifeandbeyond.com
 
 ---
